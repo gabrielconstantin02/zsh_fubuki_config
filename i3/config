@@ -58,7 +58,7 @@ bindsym $mod+d exec rofi -show drun -theme fabian
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Start chrome
-bindsym $mod+g exec google-chrome --password-store=gnome 
+bindsym $mod+g exec google-chrome-stable 
 # Start qutebrowser
 bindsym $mod+t exec qutebrowser
 # Start nautilus
