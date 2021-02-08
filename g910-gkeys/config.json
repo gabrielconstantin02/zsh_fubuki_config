@@ -1,0 +1,40 @@
+{
+    "__comment": "following hotkey types are supported: nothing, typeout, shortcut and run; only en and si keyboard mappings are currently supported",
+    "keyboard_mapping": "si",
+    "g2": {
+        "hotkey_type": "shortcut",
+        "do": "win+g"
+    },
+    "g3": {
+        "hotkey_type": "shortcut",
+        "do": "win+t"
+    },
+    "g4": {
+        "hotkey_type": "shortcut",
+        "do": "win+n"
+    },
+    "g5": {
+        "hotkey_type": "shortcut",
+        "do": "win+m"
+    },
+    "g1": {
+        "hotkey_type": "shortcut",
+        "do": "win+shift+q"
+    },
+    "g6": {
+        "hotkey_type": "shortcut",
+        "do": "win+x"
+    },
+    "g7": {
+        "hotkey_type": "nothing",
+        "do": ""
+    },
+    "g8": {
+        "hotkey_type": "nothing",
+        "do": ""
+    },
+    "g9": {
+        "hotkey_type": "shortcut",
+        "do": "win+shift+e"
+    }
+}
