@@ -1,0 +1,42 @@
+
+colors:
+  # Default colors
+  primary:
+    background: '0x1E1F29'
+    foreground: '0xFFFFFF'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x020202'
+    cursor: '0xffeecc'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xcc4343'
+    green:   '0x88cc43'
+    yellow:  '0xccaa43'
+    blue:    '0x4365cc'
+    magenta: '0xcc43aa'
+    cyan:    '0x43cccc'
+    white:   '0xFFFFFF'
+
+  # Bright colors
+  bright:
+    black:   '0x000000'
+    red:     '0xd87272'
+    green:   '0xa5d872'
+    yellow:  '0xd8bf72'
+    blue:    '0x728bd8'
+    magenta: '0xd872bf'
+    cyan:    '0x72d8d8'
+    white:   '0xFFFFFF'
+window:
+  padding:
+    x: 5
+    y: 5
+background_opacity: 0.8
+scrolling:
+# Maximum number of lines in the scrollback buffer.
+# Specifying '0' will disable scrolling.
+  history: 5000
