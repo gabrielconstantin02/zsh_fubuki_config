@@ -30,12 +30,15 @@ for_window [class=".*"] title_format " %title"
 # font, it doesn’t scale on retina/hidpi displays.
 
 # autostart applications
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id wal -i ~/Pictures/someday.png
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
+exec_always --no-startup-id $HOME/.config/polybar/shapes/scripts/pywal.sh /Pictures/nasha_mechita.jpg
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b
-exec_always --no-startup-id feh --bg-scale ~/Pictures/wp.png
+#exec_always xwinwrap -ov -fs -fdt -ni -g -b -nf -un -o 1.0 -debug -- mpv --fullscreen -wid WID --loop --no-audio ~/Videos/fubuki.mp4
+#exec_always --no-startup-id feh --bg-scale ~/Pictures/arch_blue.png
 exec_always --no-startup-id numlockx on
-exec g810-led -fx breathing all c8f8f8 15
-exec_always xwinwrap -ov -fs -fdt -ni -g -b -nf -un -o 1.0 -debug -- mpv --fullscreen -wid WID --loop --no-audio ~/Videos/fubuki.mp4
+#exec g810-led -fx breathing all c8f8f8 15
+exec g810-led -a 626b90
 
 # Multi-screen screenshots with scrot
 bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~/Pictures/screenshots && mv $f ~/Pictures/screenshots && xclip -selection clipboard -t image/png -i ~/Pictures/screenshots/`ls -1 -t ~/Pictures/screenshots | head -1`' # All screens
@@ -50,17 +53,31 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Pulse Audio controls 
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%+ unmute
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%- unmute
+#bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+#bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+
+# Media player controls 
+bindsym XF86AudioPlay exec playerctl play-pause;exec mocp --toggle-pause 
+bindsym XF86AudioStop exec playerctl stop;exec mocp --stop
+bindsym XF86AudioNext exec playerctl next;exec mocp --next
+bindsym XF86AudioPrev exec playerctl previous;exec mocp --previous
+
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun -theme fabian
+#bindsym $mod+d exec rofi -show drun -theme fabian
+bindsym $mod+d exec $HOME/.config/polybar/shapes/scripts/launcher.sh &
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Start chrome
-bindsym $mod+g exec google-chrome-stable 
-# Start qutebrowser
-bindsym $mod+t exec qutebrowser
+bindsym $mod+g exec google-chrome-stable
+# Start tor
+bindsym $mod+t exec tor-browser
 # Start nautilus
 bindsym $mod+n exec nautilus
 # Start ranger
@@ -71,6 +88,8 @@ bindsym $mod+x exec discord
 bindsym $mod+q exec killall xwinwrap
 # arigatou
 bindsym $mod+c exec xwinwrap -ov -fs -fdt -ni -g -b -nf -un -o 1.0 -debug -- mpv --fullscreen -wid WID --loop --no-audio ~/Videos/fubuki.mp4
+# Custom screenshoot
+bindsym $mod+p exec flameshot gui
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -193,7 +212,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # set $yl #fdbb69
-set $yl #c8f8f8
+set $yl #626b90
 # set $yl #46b9d6
 set $bl #111111
 set $gr #222222
