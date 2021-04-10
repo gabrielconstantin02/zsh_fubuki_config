@@ -47,6 +47,18 @@ bindsym --release Print exec scrot 'screenshot_%Y%m%d_%H%M%S.png' -e 'mkdir -p ~
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Pulse Audio controls 
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+
+# Media player controls 
+bindsym XF86AudioPlay exec playerctl play-pause;exec mocp --toggle-pause 
+bindsym XF86AudioStop exec playerctl stop;exec mocp --stop
+bindsym XF86AudioNext exec playerctl next;exec mocp --next
+bindsym XF86AudioPrev exec playerctl previous;exec mocp --previous
+
+
 # start a terminal
 bindsym $mod+Return exec alacritty 
 
