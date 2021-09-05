@@ -16,7 +16,9 @@ set $mod Mod4
 font pango:monospace 11
 
 # title style
-for_window [class=".*"] title_format " %title"
+#for_window [class=".*"] title_format " %title"
+for_window [class=".*"] border pixel 2
+
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,9 +32,10 @@ for_window [class=".*"] title_format " %title"
 # font, it doesn’t scale on retina/hidpi displays.
 
 # autostart applications
+exec --no-startup-id xbindkeys -f $HOME/.xbindkeysrc
 exec_always --no-startup-id wal -i ~/Pictures/someday.png
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh --shapes
-exec_always --no-startup-id $HOME/.config/polybar/shapes/scripts/pywal.sh /Pictures/nasha_mechita.jpg
+exec_always --no-startup-id $HOME/.config/polybar/shapes/scripts/pywal.sh /Pictures/someday.png
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 #exec_always xwinwrap -ov -fs -fdt -ni -g -b -nf -un -o 1.0 -debug -- mpv --fullscreen -wid WID --loop --no-audio ~/Videos/fubuki.mp4
 #exec_always --no-startup-id feh --bg-scale ~/Pictures/arch_blue.png
@@ -54,6 +57,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Pulse Audio controls 
+#bindsym Shift_L exec --no-startup-id amixer -q sset Master 1%+ unmute
+#bindsym Super_L exec --no-startup-id amixer -q sset Master 1%- unmute
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 1%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 1%- unmute
 #bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
